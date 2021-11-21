@@ -2415,14 +2415,14 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				padding: 4em 0 3em 0;
+				padding: 0 0 3em 0;
 			}
 
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
-				margin: 3em 0 0 0;
+				padding: 8em 0 6em 0;
+				margin: 0 0 0 0;
 			}
 
 		/* Intro */
@@ -2507,13 +2507,18 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				padding: 3.5em 0 3em 0;
+				padding: 0em 0 3em 0;
 			}
 
 		/* Nav */
 
 			#nav {
 				display: none;
+			}
+
+			#banner {
+				padding: 8em 0 6em 0;
+				margin: 0 0 0 0;
 			}
 
 		/* Intro */
@@ -2870,15 +2875,21 @@ input, select, textarea {
 
 			#header {
 				text-align: center;
-				padding: 2em 0;
+				padding: 0 0;
+			}
+
+			#header .header-container{
+				background-color: rgba(0, 0, 0, 0);
 			}
 
 				#header h1 {
-					color: #252122;
+					display: none;
+					color: #ffffff;
 					font-weight: 900;
-					font-size: 1.75em;
+					font-size: 1.3em;
 					letter-spacing: -0.035em;
 				}
+
 
 		/* Intro */
 
@@ -2898,8 +2909,8 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
-				margin: 2em 0 0 0;
+				padding: 8em 0 6em 0;
+				margin: 0 0 0 0;
 			}
 
 				#banner header {
@@ -2915,7 +2926,7 @@ input, select, textarea {
 					}
 
 					#banner header p {
-						font-size: 1.2em;
+						font-size: 1em;
 					}
 
 		/* Main */
