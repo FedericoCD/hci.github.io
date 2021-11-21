@@ -1578,6 +1578,10 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
+		strong {
+			text-align: center;
+		}
+
 		.box .image.featured {
 			position: relative;
 			width: auto;
@@ -1855,7 +1859,7 @@ input, select, textarea {
 			ul.dates .date strong {
 				display: block;
 				font-size: 1.75em;
-				padding-top: 0.15em;
+				padding-top: 0.4em;
 			}
 
 		ul.dates h3 {
