@@ -1578,10 +1578,6 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
-		strong {
-			text-align: center;
-		}
-
 		.box .image.featured {
 			position: relative;
 			width: auto;
@@ -2231,7 +2227,7 @@ input, select, textarea {
 				padding: 0;
 				font-style: normal;
 				margin: 0;
-				font-size: 1.3em;
+				font-size: 1.2em;
 			}
 
 /* Intro */
@@ -2941,6 +2937,14 @@ input, select, textarea {
 	text-align: left;
 }
 
+#intro {
+	text-align: left;
+
+}
+
+#intro p{
+	margin-bottom: 2em;
+}
 /* Chart */
 
 #chartdiv1 {
