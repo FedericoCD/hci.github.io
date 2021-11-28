@@ -2960,28 +2960,35 @@ input, select, textarea {
 
 #chartdiv1 {
 	width: 100%;
-	max-height: 600px;
+	max-height: 1000px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
 #chartdiv2 {
 	width: 100%;
-	max-height: 600px;
+	max-height: 500px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
 #chartdiv3 {
 	width: 100%;
-	max-height: 600px;
+	max-height: 500px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
 #chartdiv4 {
 	width: 100%;
-	max-height: 1000px;
+	max-height: 500px;
+	height: 100vh;
+	margin-bottom: 2em;
+  }
+
+  #chartdiv5 {
+	width: 100%;
+	max-height: 500px;
 	height: 100vh;
 	margin-bottom: 2em;
   }

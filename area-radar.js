@@ -4,7 +4,7 @@
 
 am4core.useTheme(am4themes_animated);
 
-var chart = am4core.create("chartdiv4", am4charts.RadarChart);
+var chart = am4core.create("chartdiv1", am4charts.RadarChart);
 
 chart.data = [
   {
