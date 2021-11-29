@@ -2974,28 +2974,32 @@ input, select, textarea {
 
 #chartdiv2 {
 	width: 100%;
-	max-height: 500px;
+	max-height: 580px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
 #chartdiv3 {
 	width: 100%;
-	max-height: 500px;
+	max-height: 530px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
 #chartdiv4 {
 	width: 100%;
-	max-height: 500px;
+	max-height: 480px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
 
   #chartdiv5 {
 	width: 100%;
-	max-height: 500px;
+	max-height: 530px;
 	height: 100vh;
 	margin-bottom: 2em;
   }
+
+#case2 p{
+	margin: 1em auto;
+}
