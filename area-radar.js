@@ -133,10 +133,10 @@ chart.data = [
 
 chart.padding(0, 0, 0, 0);
 chart.radarContainer.dy = 100;
-chart.innerRadius = am4core.percent(40);
+chart.innerRadius = am4core.percent(45);
 chart.radius = am4core.percent(100);
 chart.zoomOutButton.padding(20, 20, 20, 20);
-chart.zoomOutButton.margin(0, 0, 0, 0);
+chart.zoomOutButton.margin(20, 20, 20, 20);
 chart.zoomOutButton.background.cornerRadius(40, 40, 40, 40);
 chart.zoomOutButton.valign = "bottom";
 
@@ -176,7 +176,7 @@ series1.dataFields.categoryX = "word";
 series1.dataFields.valueY = "value2";
 series1.stacked = true;
 series1.fillOpacity = 0.5;
-series1.fill = am4core.color("#7c52bd");
+series1.fill = am4core.color("#9b6ad5");
 series1.strokeOpacity = 0;
 series1.dataItems.template.locations.categoryX = 0.5;
 series1.sequencedInterpolation = true;
@@ -186,9 +186,8 @@ var series2 = chart.series.push(new am4charts.RadarSeries());
 series2.name = "FEMALE";
 series2.dataFields.categoryX = "word";
 series2.dataFields.valueY = "value1";
-series2.stacked = true;
 series2.fillOpacity = 0.5;
-series2.fill = am4core.color("#d47e6f");
+series2.fill = am4core.color("#7ab5d8");
 series2.stacked = false;
 series2.strokeOpacity = 0;
 series2.dataItems.template.locations.categoryX = 0.5;
@@ -219,18 +218,13 @@ chart.cursor.lineX.strokeOpacity = 1;
 chart.cursor.lineY.strokeOpacity = 0;
 chart.cursor.lineX.stroke = am4core.color("#62b5ce");
 chart.cursor.innerRadius = am4core.percent(30);
-chart.cursor.radius = am4core.percent(80);
+chart.cursor.radius = am4core.percent(50);
 chart.cursor.selection.fill = am4core.color("#62b5ce");
-
-// var bullet = series2.bullets.create();
-// bullet.fill = am4core.color("#000000");
-// bullet.strokeOpacity = 0;
-// bullet.locationX = 0.5;
 
 var bullet = series1.bullets.create();
 bullet.fill = am4core.color("#000000");
 bullet.strokeOpacity = 0;
-bullet.locationX = 0.5;
+bullet.locationX = 0.5; 
 
 var line = bullet.createChild(am4core.Line);
 line.x2 = -100;
@@ -240,8 +234,8 @@ line.y1 = 0;
 line.strokeOpacity = 1;
 
 line.stroke = am4core.color("#000000");
-line.strokeDasharray = "2,3";
-line.strokeOpacity = 0.4;
+line.strokeDasharray = "0";
+line.strokeOpacity = 0;
 
 
 // var bulletValueLabel = bullet.createChild(am4core.Label);
@@ -295,10 +289,10 @@ bullet.events.on("positionchanged", function (event) {
 })
 
 
-bullet.adapter.add("dx", function (dx, target) {
-  var angle = categoryAxis.getAngle(target.dataItem, "categoryX", 0.5);
-  return 20 * am4core.math.cos(angle);
-})
+// bullet.adapter.add("dx", function (dx, target) {
+//   var angle = categoryAxis.getAngle(target.dataItem, "categoryX", 0.5);
+//   return 20 * am4core.math.cos(angle);
+// })
 
 bullet.adapter.add("dy", function (dy, target) {
   var angle = categoryAxis.getAngle(target.dataItem, "categoryX", 0.5);
@@ -321,60 +315,60 @@ line.adapter.add("x2", function (x2, target) {
 })
 
 
-bulletValueLabel.adapter.add("dx", function (dx, target) {
-  var dataItem = target.dataItem;
+// bulletValueLabel.adapter.add("dx", function (dx, target) {
+//   var dataItem = target.dataItem;
 
-  if (dataItem) {
-    var position = valueAxis.valueToPosition(dataItem.values.valueY.value + dataItem.values.valueY.stack);
-    return -(position * valueAxis.axisFullLength + 40);
-  }
-  return 0;
-})
-
-
-chart.seriesContainer.zIndex = 10;
-categoryAxis.zIndex = 11;
-valueAxis.zIndex = 12;
-
-chart.radarContainer.zIndex = 20;
+//   if (dataItem) {
+//     var position = valueAxis.valueToPosition(dataItem.values.valueY.value + dataItem.values.valueY.stack);
+//     return -(position * valueAxis.axisFullLength + 40);
+//   }
+//   return 0;
+// })
 
 
-var previousBullets = [];
-series2.events.on("tooltipshownat", function (event) {
-  var dataItem = event.dataItem;
+// chart.seriesContainer.zIndex = 10;
+// categoryAxis.zIndex = 11;
+// valueAxis.zIndex = 12;
 
-  for (var i = 0; i < previousBullets.length; i++) {
-    previousBullets[i].isHover = false;
-  }
+// chart.radarContainer.zIndex = 20;
 
-  previousBullets = [];
 
-  var itemBullet = dataItem.bullets.getKey(bullet.uid);
+// var previousBullets = [];
+// series2.events.on("tooltipshownat", function (event) {
+//   var dataItem = event.dataItem;
 
-  for (var i = 0; i < itemBullet.children.length; i++) {
-    var sprite = itemBullet.children.getIndex(i);
-    sprite.isHover = true;
-    previousBullets.push(sprite);
-  }
-})
+//   for (var i = 0; i < previousBullets.length; i++) {
+//     previousBullets[i].isHover = false;
+//   }
 
-series2.tooltip.events.on("visibilitychanged", function () {
-  if (!series2.tooltip.visible) {
-    for (var i = 0; i < previousBullets.length; i++) {
-      previousBullets[i].isHover = false;
-    }
-  }
-})
+//   previousBullets = [];
 
-chart.events.on("maxsizechanged", function () {
-  if (chart.pixelInnerRadius < 200) {
-    title.disabled = true;
-    chart.legend.verticalCenter = "middle";
-    chart.legend.dy = 0;
-  }
-  else {
-    title.disabled = false;
-    chart.legend.verticalCenter = "top";
-    chart.legend.dy = 20;
-  }
-})
+//   var itemBullet = dataItem.bullets.getKey(bullet.uid);
+
+//   for (var i = 0; i < itemBullet.children.length; i++) {
+//     var sprite = itemBullet.children.getIndex(i);
+//     sprite.isHover = true;
+//     previousBullets.push(sprite);
+//   }
+// })
+
+// series2.tooltip.events.on("visibilitychanged", function () {
+//   if (!series2.tooltip.visible) {
+//     for (var i = 0; i < previousBullets.length; i++) {
+//       previousBullets[i].isHover = false;
+//     }
+//   }
+// })
+
+// chart.events.on("maxsizechanged", function () {
+//   if (chart.pixelInnerRadius < 200) {
+//     title.disabled = true;
+//     chart.legend.verticalCenter = "middle";
+//     chart.legend.dy = 0;
+//   }
+//   else {
+//     title.disabled = false;
+//     chart.legend.verticalCenter = "top";
+//     chart.legend.dy = 20;
+//   }
+// })

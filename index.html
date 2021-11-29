@@ -15,7 +15,7 @@
 					<div class = "header-container">
 						<div class = "top-bar">
 						<!-- Logo -->
-							<h1><a href="index.html">Human Computer Interaction</a></h1>
+							<h1><a href="#header">Human Computer Interaction</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -44,7 +44,6 @@
 										<!-- <header>
 											<h2>Introduction</h2>
 										</header> -->
-										
 										<p>
 											COCO Captions is a large open-source dataset for object detection, segmentation, and automatic caption generation. We used COCO 2014 which contains over 30k human-annotated images for training and 5k for validation and testing. To analyze gender bias in COCO Captions, we used a data exploration tool, <a href="https://knowyourdata.withgoogle.com" target="_blank">Know Your Data (KYD)</a> , which is a publicly available tool developed by People + AI Research (a division of Google I/O) to help researchers understand datasets with the goal of improving data quality and help mitigate fairness and bias issues.
 										</p>
@@ -73,6 +72,8 @@
 											The scores obtained in KYD are based on the PMI metric to <a href="https://arxiv.org/pdf/2103.03417.pdf" target="_blank">measure associations learned by a model</a>  and it helps us understand the extent to which two words in a dataset co-occur more or less than would be expected by chance. For example, exploring the co-occurrence of the word “sport” and “female” or “male”, a score of [1, 1] is telling us that “sport” is fairly (as expected by chance) represented in the annotated captions, however, a score of [0.3, 2] is telling us that the word is underrepresented for “female” and overrepresented for “male”. 
 										</p>
 										<div id="chartdiv1"></div>
+										<!-- <div id="chartdiv0"></div> -->
+
 										<strong>Figure 1. Co-occurrence score for gender captioned images</strong>
 
 										<section>
@@ -102,12 +103,33 @@
 									<!-- <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a> -->
 									<header>
 										<h2>Case 2</h2>
-										<p>Lorem ipsum dolor sit amet feugiat</p>
+										<p>COMPAS Dataset</p>
 									</header>
+									<p>
+										COMPAS - Correctional Offender Management Profiling for Alternative Sanctions is an algorithm used by judges and parole officers for scoring a defendant’s likelihood of repeating a crime – reoffending or recidivism. The database used for this project includes criminal history, jail and prison time, demographics and COMPAS risk scores for defendants from Broward County from 2013 and 2014.  The algorithm has been proven to be biased in favor of white defendants and highly against the black defendants. This study was conducted for 2 years, and pattern of mistakes were notable.  For this study, more than 10,000 criminal defendants were observed and compared the predicted recidivism rate to the actual recidivism that occurred. When defendants are booked in jail, the COMPAS questionnaire is filled up and depending on the answers which are fed to the system, risk of recidivism and risk of violent recidivism were calculated. The algorithm correctly predicted risk of recidivism only 61% and for risk of violent recidivism, only 20% were correctly predicted.  
+									</p>
 									<div id="chartdiv2"></div>
-									<div id="chartdiv3"></div>
-									<div id="chartdiv4"></div>
+									<strong>Figure 2. Co-occurrence score for gender captioned images</strong>
+									<p>The graph above shows the risk score distribution for different races. The labels indicate risk score: whether the risk is low, medium, or high. The graph indicates that white and black defendants have the highest count for medium to high risk. 14.4% of the black defendants were labeled with a high risk score.
+									</p>
 									<div id="chartdiv5"></div>
+									<strong>Figure 3. Co-occurrence score for gender captioned images</strong>
+									<p>
+									This graph indicates the decile score for black versus white defendants. If we compare the decile score distribution for white defendants, we see that it’s highly skewed towards lower risk. For black defendants, the decile score distribution has been equally distributed.
+									</p>
+									<div id="chartdiv3"></div>
+									<strong>Figure 4. Co-occurrence score for gender captioned images</strong>
+									<p>
+									The pie charts above are used to indicate the number of defendants predicted for risk of recidivism and risk of violent recidivism. I’ve considered the defendants which were predicted to be risky and had a prior crime history of 0 or 1 criminal record. As the graph indicates, the number of black defendants have the highest percentage of being identified as risky in comparison to other races.
+									</p>
+									<p>
+									All these graphs indicate the bias towards black people. Blacks are highly likely to be misclassified as higher risk of violent recidivism, and white recidivists are misclassified as low risk more often than black defendants.  
+									</p>
+									<p>
+
+									</p>
+									<div id="chartdiv4"></div>
+									<strong>Figure 5. Co-occurrence score for gender captioned images</strong>
 								</article>
 		
 							</div>
@@ -170,14 +192,11 @@
 			<script src="core.js"></script>
 			<script src="charts.js"></script>
 			<script src="themes/animated.js"></script>
-			<script src="dragging-donut.js"></script>
 			<script src="column-chart.js"></script>
-			<script src="horizontally-stacked.js"></script>
 			<script src="area-radar.js"></script>
 			<script src="stackedcharts.js"></script>
 			<script src="clusteredchart.js"></script>
-			<script src="pieofpie - two year.js"></script>
-			<script src="pie of pie violent.js"></script>
-
+			<script src="pieofpie-twoyear.js"></script>
+			<script src="pieofpie-violent.js"></script>
 	</body>
 </html>
