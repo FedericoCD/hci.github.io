@@ -36,30 +36,46 @@
 						</section>
 
 						<section id="main">
-
-							<div class="container" id= "intro">
+							<div class="container">
 		
 								<!-- Content -->
 									<article class="box post">
-										<!-- <header>
-											<h2>Introduction</h2>
-										</header> -->
+										<header>
+											<h2>Bias in AI</h2>
+										</header>
+										
 										<p>
-											COCO Captions is a large open-source dataset for object detection, segmentation, and automatic caption generation. We used COCO 2014 which contains over 30k human-annotated images for training and 5k for validation and testing. To analyze gender bias in COCO Captions, we used a data exploration tool, <a href="https://knowyourdata.withgoogle.com" target="_blank">Know Your Data (KYD)</a> , which is a publicly available tool developed by People + AI Research (a division of Google I/O) to help researchers understand datasets with the goal of improving data quality and help mitigate fairness and bias issues.
+											Bias is a complex topic that becomes evident in context-specific ways. This makes it a challenge to address due to its socio-technical nature. The types of bias typically of concern to technical designers and developers is often not the same types of bias that end users or society is concerned about. Thus, much of the literature on bias in AI argues for a broadened perspective on bias from that focused on the technical aspects to a consideration of the broader societal impacts. This is most evidently summarized by NIST’s Special Publication, <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf " target="_blank">A Proposal for Identifying and Managing Bias within Artificial Intelligence</a>, which advocates for incorporating concerns about bias at the three stages of the AI lifecycle - pre-design, design and development, and deployment and operation. At each stage a focus on bias risk management and standards development with stakeholders is encouraged. 
 										</p>
 										<p>
-											The scores obtained in KYD are based on the PMI metric to <a href="https://arxiv.org/pdf/2103.03417.pdf" target="_blank">measure associations learned by a model</a>  and it helps us understand the extent to which two words in a dataset co-occur more or less than would be expected by chance. For example, exploring the co-occurrence of the word “sport” and “female” or “male”, a score of [1, 1] is telling us that “sport” is fairly (as expected by chance) represented in the annotated captions, however, a score of [0.3, 2] is telling us that the word is underrepresented for “female” and overrepresented for “male”. 
+											A strong emphasis is put on the pre-design phase of the AI lifecycle where many of the components of an AI system are decided upon. These include planning, problem specification, data selection and quantification and it is of crucial importance to question who makes these decisions and who has the power and control over them. One risk that has been seen in the past with regards to AI systems is that there has been an attitude of technological solutionism wherein it is anticipated that the AI system will only yield positive impacts. However, as these systems proliferate designers need to be aware of the conditions under which a system might cause disparate impact (Schwartz). One area where this disparate impact has become apparent is in algorithmic hiring. Raghavan, et al. investigate bias in this use case and find that not only greater transparency in this industry is vital, but it is equally crucial to examine tools like algorithmic hiring in the context of their use and development (Raghavan). This is seconded by NIST’s special publication on managing bias in AI where they also emphasize the need to set reasonable expectations and limits on the claims made about AI tools and performance and caution organizations against poor problem framing and developing technology based on spurious data correlations. In practice, they encourage researchers to include statements about possible societal impacts in papers and developers to engage a variety of stakeholders such as end-users, practitioners, subject-matter experts, and interdisciplinary professionals. Additionally, maintaining a diversity of individuals for whom bias may be a concern is vital. Leavy also pushes for this increased diversity in the development of AI tools, especially in the development of language models, where she suggests the integration of feminist linguistic theory in the machine learning approach so as to better account for the gender bias in language datasets (Leavy). See a visualization (Figure 1) of gender bias in labeled datasets below.  
 										</p>
+										<p>
+											Since the pre-design phase is where data selection and initial quantification occurs, it is important to note the various ways that bias occurs during the collection and exploratory data analysis of data. First, in the collection of data various phenomena can be observed that introduce bias. There are data quality issues like sparsity and noise as well as geodiversity issues. Shankar, et al. points out that due to the cost and resources required to assemble quality datasets, many of these datasets are amero-centric or euro-centric in terms of the geographical collection of the data, but they are often used in the developing world (Shankar). Meanwhile in the case of social media data, Olteanu goes into great depth on the various types of bias present, such as behavioral biases, content production biases, temporal biases, among many others (Olteanu). ForHumanity, a non-profit focusing on AI policy and auditing, discusses how proxy variables, or variables that don’t directly measure the characteristic of interest, can be used to infer characteristics that are protected by non-discrimination law such as race, sexuality, or age. They advocate for establishing bias mitigation documents on datasets whenever protected category variables, or proxy variables are present. To see an example of the harms of proxy variables in criminal justice, look at Figures 2-4 below. Other widely discussed forms of bias are sampling bias, or not having a dataset that is representative of the population it is targeting, cognitive bias, and non-response bias, wherein certain groups of people don’t interact with the data collection or AI development process. It is important if these forms of bias are present to establish well thought out and reasonable benchmarks. To help mitigate some of these issues ForHumanity advocates for a thorough exploratory data analysis process where both training and validation data is analyzed for the presence of protected or proxy variables, checks are done to see if labels are consistent and reliable, and the underlying data distributions and statistical characteristics between the training and validation datasets are the same (Brown). To assist with this process, there have been visualization, labeling, and documentation resources created. For example, to help dataset analysts and developers to better understand the data collection, composition, motivation, and recommended uses, Gebru, et al. recommends datasheets for datasets that would accompany datasets and inform downstream users of potential issues (Gebru). Additionally, to see various forms of bias that might become apparent with more intersectional methods, FairVis was created to be able to easily visualize intersectional bias in datasets, even suggesting other categories that might be beneficial to investigate (Cabrera). Finally, if a dataset’s labels exhibit bias, Jing, et al. came up with a mathematical framework that reweights the labels such that it changes the underlying data distribution of sample points (Jing). 
+										</p>
+
+										<p>
+											The next critical phase of the AI lifecycle is that of design and development which is done by software designers, engineers, and data scientists. There are a few distinct bias risks that surface at this stage, namely further data analysis issues, organizational practices, and optimizing a model over its context. After exploratory data analysis, oftentimes data cleaning is required. At this stage, the decisions about how data is represented, what default values are used, and how data is normalized can introduce biases that are reflective of the analyst (Olteanu). Once models are developed, developers most frequently focus on system performance and optimization which means in practice that they often prioritize models that have higher accuracy, even though that has been shown not to be the best method when it comes to mitigating bias. Furthermore, when using aggregated data, developers should be very cautious about using those aggregations to make predictions about individual behavior (Schwartz). Instead AI tools need to be created and used for specific, well-defined use cases. In the evaluation stage of modeling, the selection of metrics is important since they can emphasize aggregations of the data and oftentimes context or domain specific performance indicators are more appropriate than widely used metrics (Olteanu). Critical analysis of these models and systems can be supported by organizational culture with practices like cultural effective challenge which encourages technology developers to challenge and question modeling and engineering decisions. 
+										</p>
+
+										<p>
+											The last stage of the AI is deployment and operation where users start to interact with the developed technology. In reality, tools that are directly marketed to and used by the public are quickly adapted for uses that were not intended. Furthermore, in many of these systems, individuals’ data is used in further modeling without their consent and the resulting decisions can impact their lives. This issue of “distance from technology” wherein the intent and specified performance of a system during design and development can shift once in use due to new uses or repurposing needs to also be investigated. As applied to interpretability, this can lead users and developers to understand system outputs differently, potentially leading to harmful misinterpretations. To help manage these risks deployment monitoring and auditing can improve outcomes. Additionally, employing counterfactual fairness before deployment can help bridge the gap between the development environment and real world (Schwartz). 
+										</p>
+
+										<p>
+											As can be seen there are many facets of an AI system where bias can occur. Developers, designers, data creators, engineers, and organizational leaders should be aware of the types of biases that can occur at each stage of the AI lifecycle and bring diverse end-users, subject-matter experts, and other stakeholders in to the development discussion and process. Changes such as these will help AI systems develop in a way that encourages trust and supports human well-being. 
+										</p>
+										
 
 									</article>
 		
 							</div>
 
+
 							<div class="container" id= "case1">
 		
 								<!-- Content -->
 									<article class="box post">
-										<!-- <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a> -->
 										<header>
 											<h2>Exploring Gender Bias</h2>
 											<p>COCO Captions dataset</p>
@@ -74,7 +90,7 @@
 										<div id="chartdiv1"></div>
 										<!-- <div id="chartdiv0"></div> -->
 
-										<strong>Figure 1. Co-occurrence score for gender captioned images</strong>
+										<strong>Figure 1. Co-occurrence score for gender captioned images.</strong>
 
 										<section>
 											<header>
@@ -109,16 +125,16 @@
 										COMPAS - Correctional Offender Management Profiling for Alternative Sanctions is an algorithm used by judges and parole officers for scoring a defendant’s likelihood of repeating a crime – reoffending or recidivism. The database used for this project includes criminal history, jail and prison time, demographics and COMPAS risk scores for defendants from Broward County from 2013 and 2014.  The algorithm has been proven to be biased in favor of white defendants and highly against the black defendants. This study was conducted for 2 years, and pattern of mistakes were notable.  For this study, more than 10,000 criminal defendants were observed and compared the predicted recidivism rate to the actual recidivism that occurred. When defendants are booked in jail, the COMPAS questionnaire is filled up and depending on the answers which are fed to the system, risk of recidivism and risk of violent recidivism were calculated. The algorithm correctly predicted risk of recidivism only 61% and for risk of violent recidivism, only 20% were correctly predicted.  
 									</p>
 									<div id="chartdiv2"></div>
-									<strong class= "caption">Figure 2. Distribution of risk score for criminals with different races</strong>
+									<strong class= "caption">Figure 2. Distribution of risk score for criminals with different races.</strong>
 									<p>The graph above shows the risk score distribution for different races. The labels indicate risk score: whether the risk is low, medium, or high. The graph indicates that white and black defendants have the highest count for medium to high risk. 14.4% of the black defendants were labeled with a high risk score.
 									</p>
 									<div id="chartdiv5"></div>
-									<strong>Figure 3. Distribution of decile score for White defendants versus Black defendants</strong>
+									<strong>Figure 3. Distribution of decile score for White defendants versus Black defendants.</strong>
 									<p>
 									This graph indicates the decile score for black versus white defendants. If we compare the decile score distribution for white defendants, we see that it’s highly skewed towards lower risk. For black defendants, the decile score distribution has been equally distributed.
 									</p>
 									<div id="chartdiv4"></div>
-									<strong>Figure 4. Co-occurrence score for gender captioned images</strong>
+									<strong>Figure 4. Defendants predicted for risk of recidivism classified by race.</strong>
 									<p>
 									The pie charts above are used to indicate the number of defendants predicted for risk of recidivism and risk of violent recidivism. I’ve considered the defendants which were predicted to be risky and had a prior crime history of 0 or 1 criminal record. As the graph indicates, the number of black defendants have the highest percentage of being identified as risky in comparison to other races.
 									</p>
@@ -169,27 +185,33 @@
 										<li>
 											<span class="date"><strong>1</strong></span>
 											<h3><a href="#">Common Objects in Context - COCO</a></h3>
-											<p>Chen, X. (2015, April 1). Microsoft COCO Captions: Data Collection and Evaluation Server.  <a href="https://arxiv.org/abs/1504.00325" target="_blank">https://arxiv.org/abs/1504.00325</a></p>
+											<p>Chen, X. (2015, April 1)  <a href="https://arxiv.org/abs/1504.00325" target="_blank">https://arxiv.org/abs/1504.00325</a></p>
 										</li>
 										<li>
 											<span class="date"><strong>2</strong></span>
 											<h3><a href="#">Measuring Model Biases in the Absence of Ground Truth</a></h3>
-											<p>Aka, O. (2021, June). <a href="https://arxiv.org/pdf/2103.03417.pdf" target="_blank"></a> https://arxiv.org/pdf/2103.03417.pdf</p>
+											<p>Aka, O. (2021, June) <a href="https://arxiv.org/pdf/2103.03417.pdf" target="_blank"> https://arxiv.org/pdf/2103.03417</a></p>
 										</li>
 										<li>
 											<span class="date"><strong>3</strong></span>
-											<h3><a href="#">Magna tempus lorem feugiat</a></h3>
-											<p>Dolore consequat sed phasellus lorem sed etiam nullam dolor etiam sed amet sit consequat.</p>
+											<h3><a href="#">A Proposal for Identifying and Managing Bias within Artificial Intelligence</a></h3>
+											<p>Schwartz, R., Down, L., Jonas, A. and Tabassi, E. (2021). Draft NIST Special Publication 1270. National Institute for Standards and Technology. <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf" target="_blank"> https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST</a></p>
 										</li>
 										<li>
 											<span class="date"><strong>4</strong></span>
-											<h3><a href="#">Dolore tempus ipsum feugiat nulla</a></h3>
-											<p>Feugiat lorem dolor sed nullam tempus lorem ipsum dolor sit amet nullam consequat.</p>
+											<h3><a href="#">Bias Mitigation in Data Sets</a></h3>
+											<p>Brown, S., Carrier, R., Hickok, H. and Smith, A. (2021) <a href="https://www.researchgate.net/publication/353034329_Bias_Mitigation_in_Data_Sets" target="_blank">https://www.researchgate.net/publication/Bias_Mitigation_in_Data_Sets  </a> </p>
 										</li>
 										<li>
 											<span class="date"><strong>5</strong></span>
-											<h3><a href="#">Blandit tempus aliquam?</a></h3>
-											<p>Feugiat sed tempus blandit tempus adipiscing nisl lorem ipsum dolor sit amet dolore.</p>
+											<h3><a href="#">Identifying and correcting label bias in machine learning</a></h3>
+											<p>Jiang, H., & Nachum, O. (2020, June). In International Conference on Artificial Intelligence and Statistics (pp. 702-712). PMLR. </p>
+										</li>
+										<li>
+											<span class="date"><strong>6</strong></span>
+											<h3><a href="#">Mitigating bias in algorithmic hiring: Evaluating claims and practices</a></h3>
+											<p>Raghavan, M., Barocas, S., Kleinberg, J., & Levy, K. (2020, January). In Proceedings of the 2020 conference on fairness, accountability, and transparency (pp. 469-481).
+											</p>
 										</li>
 									</ul>
 								</section>

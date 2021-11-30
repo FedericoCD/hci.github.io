@@ -26,27 +26,27 @@ var chart = container.createChild(am4charts.PieChart);
 chart.data = [{
     "country": "African-American",
     "litres": 152,
-    "subData": [{ name: "Prior Cases - 0", value: 84 }, { name: "Prior Casess - 1", value: 68 }]
+    "subData": [{ name: "Prior Cases (0)", value: 84 }, { name: "Prior Cases (1)", value: 68 }]
 }, {
     "country": "Caucasian",
     "litres": 96,
-        "subData": [{ name: "Prior Cases - 0", value: 57 }, { name: "Prior Cases - 1", value: 39 }]
+        "subData": [{ name: "Prior Cases (0)", value: 57 }, { name: "Prior Cases (1)", value: 39 }]
 }, {
     "country": "Asian",
     "litres": 1,
-        "subData": [{ name: "Prior Cases - 0", value: 1 }, { name: "Prior Cases -1", value: 0 }]
+        "subData": [{ name: "Prior Cases (0)", value: 1 }, { name: "Prior Cases (1)", value: 0 }]
 }, {
     "country": "Hispanic",
     "litres": 19,
-        "subData": [{ name: "Prior Cases - 0", value: 12 }, { name: "Prior Cases - 1", value: 7 }]
+        "subData": [{ name: "Prior Cases (0)", value: 12 }, { name: "Prior Cases (1)", value: 7 }]
 }, {
     "country": "Native American",
     "litres": 1,
-        "subData": [{ name: "Prior Cases - 0", value: 0 }, { name: "Prior Cases - 1", value: 1 }]
+        "subData": [{ name: "Prior Cases (0)", value: 0 }, { name: "Prior Cases (1)", value: 1 }]
 }, {
     "country": "Other",
     "litres": 17,
-        "subData": [{ name: "Prior Cases - 0", value: 12 }, { name: "Prior Cases - 1", value: 5 }]
+        "subData": [{ name: "Prior Cases (0)", value: 12 }, { name: "Prior Cases (1)", value: 5 }]
 }];
 
 // Add and configure Series
